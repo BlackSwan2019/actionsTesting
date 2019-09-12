@@ -1,1 +1,1 @@
-!(GermanShepherd.png)
+![](GermanShepherd.png)
