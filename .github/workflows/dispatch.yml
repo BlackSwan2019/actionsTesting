@@ -5,7 +5,8 @@ on:
     inputs:
       buildName:
         description: 'File name (optional)'
-        required: false
+        default: 'CustomBuild'
+        required: true
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
