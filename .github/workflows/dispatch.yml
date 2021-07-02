@@ -1,6 +1,8 @@
 name: Saucy 
 
 on:
+  schedule:
+    - cron: '15 19 * * * *'
   workflow_dispatch:
     inputs:
       buildName:
