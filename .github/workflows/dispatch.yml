@@ -13,7 +13,7 @@ on:
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
   GITHUB_PR_BRANCH: ${{ github.head_ref }}
-  COMMIT_MESSAGE: ${{ github.github.event }}
+  COMMIT_MESSAGE: ${{ github.event }}
 
 jobs:
   print-env-var:
