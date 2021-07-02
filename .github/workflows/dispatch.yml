@@ -8,7 +8,7 @@ on:
         required: false
 
 env:
-  BUILD_NAME: ${{ github.event.inputs.buildName || 'RegressionDiscoverFinancial' }}
+  BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
 
 jobs:
   print-env-var:
