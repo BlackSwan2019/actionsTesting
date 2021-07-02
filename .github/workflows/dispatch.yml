@@ -10,6 +10,7 @@ on:
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
+  GITHUB_PR_BRANCH: ${{ github.head_ref }}
 
 jobs:
   print-env-var:
@@ -19,7 +20,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Print env vars
-        run: echo $BUILD_NAME
+        run: |
+          echo Build name: $BUILD_NAME
+          echo PR Branch name: "${GITHUB_PR_BRANCH}"
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
