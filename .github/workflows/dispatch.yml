@@ -20,8 +20,8 @@ jobs:
       - name: Print env vars
         run: echo $BUILD_NAME
       - uses: actions/setup-node@v2
-          with:
-            node-version: '14'
-            cache: 'yarn'
-        - run: yarn install
-        - run: yarn test
+        with:
+          node-version: '14'
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn test
