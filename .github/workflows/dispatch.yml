@@ -12,7 +12,7 @@ on:
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
-  # COMMIT_MESSAGE: ${{ git log --format=%B -n 1 ${{ github.event.after }} }}
+  COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
 
 jobs:
   print-env-var:
@@ -24,7 +24,7 @@ jobs:
       - name: Print env vars
         run: |
           echo Build name: $BUILD_NAME
-          echo Commit message: $(git log --format=%B -n 1 ${{ github.event.after }})
+          echo Commit message: "${COMMIT_MESSAGE}"
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
