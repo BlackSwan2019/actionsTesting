@@ -12,7 +12,6 @@ on:
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
-  GITHUB_PR_BRANCH: ${{ github.head_ref }}
   # COMMIT_MESSAGE: ${{ git log --format=%B -n 1 ${{ github.event.after }} }}
 
 jobs:
@@ -25,7 +24,6 @@ jobs:
       - name: Print env vars
         run: |
           echo Build name: $BUILD_NAME
-          echo PR Branch name: "${GITHUB_PR_BRANCH}"
           echo Commit message: $(git log --format=%B -n 1 ${{ github.event.after }})
       - uses: actions/setup-node@v2
         with:
