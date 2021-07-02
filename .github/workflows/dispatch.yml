@@ -1,0 +1,21 @@
+name: Saucy 
+
+on:
+  workflow_dispatch:
+    inputs:
+      buildName:
+        description: 'File name (optional)'
+        required: false
+
+env:
+  BUILD_NAME: ${{ github.event.inputs.buildName }}
+
+jobs:
+  print-env-var:
+    name: Print env var
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Print env vars
+        run: echo BUILD_NAME
