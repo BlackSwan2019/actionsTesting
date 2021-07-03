@@ -24,8 +24,7 @@ jobs:
       - name: Print env vars
         run: |
           echo Build name: $BUILD_NAME
-          echo Commit message: "${COMMIT_MESSAGE}"
-          echo "${{toJSON(github)}}"
+          echo Commit message: "$(git log -1 --pretty=%B)""
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
