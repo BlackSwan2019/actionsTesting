@@ -12,6 +12,7 @@ on:
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
+  GITHUB_BRANCH: ${{ github.events.ref }}
   # COMMIT_MESSAGE: ${{ git log -1 --pretty=%B }}
 
 jobs:
@@ -24,7 +25,7 @@ jobs:
       - name: Print env vars
         run: |
           echo Build name: $BUILD_NAME
-          echo Commit message: "$(git log -1 --pretty=%B)"
+          echo Sauce build description: "$("${GITHUB_BRANCH:11}") - $(git log -1 --pretty=%B)"
           echo "${{toJSON(github)}}"
       - uses: actions/setup-node@v2
         with:
