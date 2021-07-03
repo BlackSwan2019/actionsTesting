@@ -25,7 +25,7 @@ jobs:
       - name: Print env vars
         run: |
           echo Build name: $BUILD_NAME
-          echo Sauce build description: "$("${GITHUB_BRANCH:11}") - $(git log -1 --pretty=%B)"
+          echo Sauce build description: "${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B)"
           echo "${{toJSON(github)}}"
       - uses: actions/setup-node@v2
         with:
