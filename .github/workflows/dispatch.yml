@@ -1,4 +1,4 @@
-name: Saucy 
+name: Saucy
 
 on:
   workflow_dispatch:
@@ -9,12 +9,11 @@ on:
         required: true
   pull_request:
     branches: 'master'
-  
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
   GITHUB_BRANCH: ${{ github.event.ref }}
-  # COMMIT_MESSAGE: ${{ git log -1 --pretty=%B }}
+  BUILD_DESCRIPTION: ${{ github.event.ref - $(git log -1 --pretty=%B)) }}
 
 jobs:
   print-env-var:
@@ -25,7 +24,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Print env vars
         run: |
-          BUILD_DESCRIPTION=$(echo ${GITHUB_BRANCH:11}: $(git log -1 --pretty=%B))
+          # BUILD_DESCRIPTION=$(echo ${GITHUB_BRANCH:11}: $(git log -1 --pretty=%B))
           echo BUILD_DESCRIPTION: $BUILD_DESCRIPTION
       - uses: actions/setup-node@v2
         with:
