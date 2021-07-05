@@ -14,7 +14,7 @@ env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
   GITHUB_BRANCH: ${{ github.event.ref }}
   # BUILD_DESCRIPTION: ${{ github.event.ref $(git log -1 --pretty=%B)) }}
-  BUILD_DESC: ${{ toJSON(github.event) }}
+  BUILD_DESC: ${{ toJSON(github) }}
 
 jobs:
   print-env-var:
