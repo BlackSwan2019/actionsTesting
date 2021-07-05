@@ -17,7 +17,7 @@ env:
   GITHUB_BRANCH: ${{ github.event.ref }}
   # BUILD_DESCRIPTION: ${{ github.event.ref $(git log -1 --pretty=%B)) }}
   BUILD_DESC: ${{ toJSON(github) }}
-  IS_CRON_JOB: ${{ github.event_name == 'schedule'  }}
+  IS_CRON_JOB: ${{ github.event_name == 'workflow_dispatch'  }}
 
 jobs:
   print-env-var:
@@ -31,5 +31,5 @@ jobs:
           echo IS_CRON_JOB - $IS_CRON_JOB
           date=$(date '+%d/%m/%Y')
           BUILD_DESCRIPTION=$(echo ${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B))
-          B_DESC=$([ "$IS_CRON_JOB" = false ] && echo "${date} Regression" || echo "${BUILD_DESCRIPTION}")
+          B_DESC=$([ "$IS_CRON_JOB" = true ] && echo "${date} Regression" || echo "${BUILD_DESCRIPTION}")
           echo B_DESC - $B_DESC
