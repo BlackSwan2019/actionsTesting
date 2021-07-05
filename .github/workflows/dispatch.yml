@@ -32,5 +32,4 @@ jobs:
           date=$(date '+%d/%m/%Y')
           BUILD_DESCRIPTION=$(echo ${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B))
           B_DESC=$([ "$IS_CRON_JOB" = true ] && echo "${date} Regression" || echo "${BUILD_DESCRIPTION}")
-          echo $BUILD_DESCRIPTION
-          echo $BUILD_DESC
+          echo B_DESC - $B_DESC
