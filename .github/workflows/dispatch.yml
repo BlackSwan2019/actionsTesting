@@ -29,6 +29,8 @@ jobs:
       - name: Print env vars
         run: |
           echo IS_CRON_JOB - $IS_CRON_JOB
+          date=$(date '%d-%m-%y')
           BUILD_DESCRIPTION=$(echo ${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B))
+          B_DESC=$([ "$IS_CRON_JOB" = true ] && echo "${date} Regression" || echo "${BUILD_DESCRIPTION}")
           echo $BUILD_DESCRIPTION
           echo $BUILD_DESC
