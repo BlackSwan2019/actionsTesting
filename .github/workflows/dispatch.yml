@@ -17,7 +17,7 @@ env:
   GITHUB_BRANCH: ${{ github.event.ref }}
   # BUILD_DESCRIPTION: ${{ github.event.ref $(git log -1 --pretty=%B)) }}
   BUILD_DESC: ${{ toJSON(github) }}
-  IS_CRON_JOB: ${{ github.event_name == 'workflow_dispatch'  }}
+  IS_CRON_JOB: ${{ github.event_name == 'schedule'  }}
 
 jobs:
   print-env-var:
