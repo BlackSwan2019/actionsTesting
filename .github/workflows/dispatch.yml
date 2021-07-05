@@ -26,7 +26,7 @@ jobs:
         run: |
           BUILD_DESCRIPTION=$(echo ${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B))
           echo ${{ toJSON(github.event) }}
-          echo BUILD_DESCRIPTION: $BUILD_DESCRIPTION
+          echo BUILD_DESCRIPTION - $BUILD_DESCRIPTION
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
