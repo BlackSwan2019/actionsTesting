@@ -26,6 +26,7 @@ jobs:
       - name: Print env vars
         run: |
           BUILD_DESCRIPTION=$(echo ${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B))
+          echo $BUILD_DESCRIPTION
           echo $BUILD_DESC
       - uses: actions/setup-node@v2
         with:
