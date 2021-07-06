@@ -13,6 +13,7 @@ env:
   # BUILD_DESCRIPTION: ${{ github.event.ref $(git log -1 --pretty=%B)) }}
   BUILD_DESC: ${{ toJSON(github) }}
   IS_CRON_JOB: ${{ github.event_name == 'schedule' }}
+  TITLE_NAME: ${{ github.event }}
 
 jobs:
   print-env-var:
@@ -26,4 +27,4 @@ jobs:
           date=$(TZ=":America/Chicago" date '+%m/%d/%Y')
           BRANCH_INFO=$(echo ${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B))
           BUILD_DESCRIPTION=$([ "$IS_CRON_JOB" = true ] && echo "${date} Regression" || echo "${BRANCH_INFO}")
-          echo BUILD_DESCRIPTION - $BUILD_DESCRIPTION
+          echo TITLE_NAME - $TITLE_NAME
