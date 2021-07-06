@@ -13,7 +13,7 @@ env:
   # BUILD_DESCRIPTION: ${{ github.event.ref $(git log -1 --pretty=%B)) }}
   BUILD_DESC: ${{ toJSON(github) }}
   IS_CRON_JOB: ${{ github.event_name == 'schedule' }}
-  TITLE_NAME: ${{ github.event }}
+  TITLE_NAME: ${{ toJSON(github.event) }}
 
 jobs:
   print-env-var:
