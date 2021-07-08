@@ -20,7 +20,7 @@ jobs:
     name: Print env var
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Cgggheckout
         uses: actions/checkout@v1
       - name: Print env vars
         run: |
