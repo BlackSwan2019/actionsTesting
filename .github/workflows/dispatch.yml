@@ -28,4 +28,4 @@ jobs:
           date=$(TZ=":America/Chicago" date '+%m/%d/%Y')
           BRANCH_INFO=$(echo ${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B))
           BUILD_DESCRIPTION=$([ "$IS_CRON_JOB" = true ] && echo "${date} Regression" || echo "${BRANCH_INFO}")
-          echo TITLE_NAME - $TITLE_NAME
+          echo BUILD_DESCRIPTION - $BUILD_DESCRIPTION
