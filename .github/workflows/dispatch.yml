@@ -25,7 +25,7 @@ jobs:
       - name: Cancel workflow
         run: |
           if [ true ]; then
-            exit 1;
+            exit 0;
           fi
       - name: Print env vars
         run: |
