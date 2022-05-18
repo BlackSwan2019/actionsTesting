@@ -11,7 +11,6 @@ on:
         - tablet
       testTag:
         description: Cucumber tag
-        required: true
         default: ''
   push:
     branches: 'master'
