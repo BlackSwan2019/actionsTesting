@@ -23,6 +23,7 @@ env:
   BUILD_DESC: ${{ toJSON(github) }}
   IS_MANUAL_TRIGGER: ${{ github.event_name == 'workflow_dispatch' }}
   TITLE_NAME: ${{ toJSON(github.event) }}
+  TEST_TAG: ${{ github.event.inputs.testTag || "#Mock" }}
 
 jobs:
   print-env-var:
