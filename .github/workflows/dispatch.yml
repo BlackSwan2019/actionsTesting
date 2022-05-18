@@ -2,6 +2,17 @@ name: Saucy
 
 on:
   workflow_dispatch:
+    inputs:
+      device:
+        type: choice
+        description: Device
+        options: 
+        - handset
+        - tablet
+      testTag:
+        description: Cucumber tag
+        required: true
+        default: ''
   push:
     branches: 'master'
 
