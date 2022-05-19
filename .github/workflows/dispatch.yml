@@ -22,6 +22,7 @@ on:
     - cron: '25 2 * * *'
     - cron: '30 3 * * *'
     - cron: '30 5 * * *'
+    - cron: '0 12 * * *'
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
