@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v1
       - name: Cancel workflow
         run: |
-          echo EVENT ${{ toJSON(github.event.repository) }}
+          echo EVENT $TITLE_NAME
           echo BRANCH $BRANCH_NAME
           echo TEST_TAG ${TEST_TAG}
           if [ true ]; then
