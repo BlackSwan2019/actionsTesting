@@ -14,9 +14,11 @@ on:
         default: ''
       branch:
         description: Branch name
-        default: 'release/2207.0'
+        default: 'release/322.0'
   push:
     branches: 'master'
+  schdule:
+    - cron: '5 2 * * *'
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
