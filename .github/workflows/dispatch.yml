@@ -17,7 +17,7 @@ on:
         default: 'release/322.0'
   push:
     branches: 'master'
-  schdule:
+  schedule:
     - cron: '5 2 * * *'
 
 env:
