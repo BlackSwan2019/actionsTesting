@@ -56,3 +56,11 @@ jobs:
           BRANCH_INFO=$(echo ${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B))
           BUILD_DESCRIPTION=$([ "$IS_MANUAL_TRIGGER" = true ] && echo "${BRANCH_INFO}" || echo "${date} Regression")
           echo BUILD_DESCRIPTION - $BUILD_DESCRIPTION
+      - name: Dispatch tests
+        run: |
+          curl \
+          -X POST \
+          -H "Authorization: Bearer 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"
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/BlackSwan2019/actonsTesting/dispatches \
+          -d '{"event_type":"run-test","client_payload":{"unit":false,"integration":true}}'
