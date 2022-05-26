@@ -59,7 +59,7 @@ jobs:
           echo BUILD_DESCRIPTION - $BUILD_DESCRIPTION
       - name: Dispatch tests
         run: |
-          for x in {1...5}
+          for i in {1..5}
           do
             sleep 5
             echo SEND DISPATCH
