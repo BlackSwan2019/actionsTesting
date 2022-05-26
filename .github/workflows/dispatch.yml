@@ -23,6 +23,8 @@ on:
     - cron: '30 3 * * *'
     - cron: '30 5 * * *'
     - cron: '0 12 * * *'
+  repository_dispatch:
+    types: [run-test]
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
