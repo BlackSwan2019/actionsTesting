@@ -33,6 +33,7 @@ env:
   GITHUB_EVENT: ${{ toJSON(github) }}
   TEST_TAG: ${{ github.event.inputs.testTag || '@Mock' }} 
   BRANCH_NAME: ${{ github.event.inputs.branch || github.event.repository.default_branch }}
+  ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
 
 jobs:
   print-env-var:
