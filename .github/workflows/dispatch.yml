@@ -61,6 +61,7 @@ jobs:
         run: |
           for x in {1...5}
           do
-            sleep 3
+            sleep 5
+            echo SEND DISPATCH
             curl -X POST -H "Authorization: Bearer ${ACTIONS_TOKEN}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/BlackSwan2019/actionsTesting/dispatches -d '{"event_type":"run-test","client_payload":{"unit":false,"integration":true}}'
           done
