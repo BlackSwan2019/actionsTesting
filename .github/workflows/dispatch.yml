@@ -49,6 +49,9 @@ jobs:
           if [ true ]; then
             exit 0;
           fi
+      - name: Run if build-apk checked
+        if: ${{ github.event.inputs.build-apk == 'true' }}
+        run: echo Job ran
       - name: Print env vars
         run: |
           echo ${{ github.event_name }}
