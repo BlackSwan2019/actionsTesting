@@ -41,8 +41,8 @@ jobs:
         uses: actions/checkout@v1
       - name: Cancel workflow
         run: |
-          echo CHECKBOX INPUT - ${{ github.event.inputs }}
-          
+          echo CHECKBOX INPUT - ${{ github.event.inputs.build-apk }}
+
           echo EVENT $GITHUB_EVENT
           echo BRANCH $BRANCH_NAME
           echo TEST_TAG ${TEST_TAG}
@@ -56,11 +56,11 @@ jobs:
           BRANCH_INFO=$(echo ${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B))
           BUILD_DESCRIPTION=$([ "$IS_MANUAL_TRIGGER" = true ] && echo "${BRANCH_INFO}" || echo "${date} Regression")
           echo BUILD_DESCRIPTION - $BUILD_DESCRIPTION
-      - name: Dispatch tests
-        run: |
-          for i in {1..5}
-          do
-            sleep 5
-            echo SEND DISPATCH
-            curl -X POST -H "Authorization: Bearer ${ACTIONS_TOKEN}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/BlackSwan2019/actionsTesting/dispatches -d '{"event_type":"run-test","client_payload":{"unit":false,"integration":true}}'
-          done
+      # - name: Dispatch tests
+      #   run: |
+      #     for i in {1..5}
+      #     do
+      #       sleep 5
+      #       echo SEND DISPATCH
+      #       curl -X POST -H "Authorization: Bearer ${ACTIONS_TOKEN}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/BlackSwan2019/actionsTesting/dispatches -d '{"event_type":"run-test","client_payload":{"unit":false,"integration":true}}'
+      #     done
