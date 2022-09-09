@@ -44,8 +44,8 @@ jobs:
           node-version: 16
       - name: Cancel workflow
         run: |
-          yarn add -g typescript
-          yarn add -g ts-node
+          yarn global add typescript
+          yarn global add ts-node
           
           echo TS-NODE
           which ts-node
