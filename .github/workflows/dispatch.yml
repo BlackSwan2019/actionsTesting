@@ -45,7 +45,7 @@ jobs:
       - name: Cancel workflow
         run: |
           echo TS-NODE
-          which ts-node
+          # which ts-node
 
           # echo CHECKBOX INPUT - ${{ github.event.inputs.build-apk }}
 
