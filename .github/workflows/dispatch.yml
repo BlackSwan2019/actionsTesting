@@ -44,14 +44,14 @@ jobs:
           echo TS-NODE
           which ts-node
 
-          echo CHECKBOX INPUT - ${{ github.event.inputs.build-apk }}
+          # echo CHECKBOX INPUT - ${{ github.event.inputs.build-apk }}
 
-          echo EVENT $GITHUB_EVENT
-          echo BRANCH $BRANCH_NAME
-          echo TEST_TAG ${TEST_TAG}
-          if [ true ]; then
-            exit 0;
-          fi
+          # echo EVENT $GITHUB_EVENT
+          # echo BRANCH $BRANCH_NAME
+          # echo TEST_TAG ${TEST_TAG}
+          # if [ true ]; then
+          #   exit 0;
+          # fi
       - name: Run if build-apk checked
         if: ${{ github.event.inputs.build-apk == 'true' }}
         run: echo Job ran
