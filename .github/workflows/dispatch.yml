@@ -50,8 +50,8 @@ jobs:
           echo TS-NODE
           which ts-node
 
-          ts-node scripts.ts
-          
+          ts-node script.ts
+
           # echo CHECKBOX INPUT - ${{ github.event.inputs.build-apk }}
 
           # echo EVENT $GITHUB_EVENT
