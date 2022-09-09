@@ -44,8 +44,8 @@ jobs:
           node-version: 16
       - name: Cancel workflow
         run: |
-          npm install -g typescript
-          npm install -g ts-node
+          yarn add -g typescript
+          yarn add -g ts-node
           
           echo TS-NODE
           which ts-node
