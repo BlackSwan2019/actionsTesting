@@ -42,4 +42,4 @@ jobs:
       - name: Print data
         run: |
           echo BRANCH_NAME
-          echo ${GITHUB_HEAD_REF}
+          echo ${GITHUB_REF_NAME}
