@@ -20,6 +20,8 @@ on:
         description: Build and upload .apk (Android emulators/real devices)
   push:
     branches: 'master'
+  pull_request:
+    branches: master
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
@@ -39,38 +41,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Cancel workflow
+      - name: Print data
         run: |
-          yarn global add typescript ts-node tslib @types/node
-          
-          echo TS-NODE
-          which ts-node
-
-          ts-node script.ts
-
-          # echo CHECKBOX INPUT - ${{ github.event.inputs.build-apk }}
-
-          # echo EVENT $GITHUB_EVENT
-          # echo BRANCH $BRANCH_NAME
-          # echo TEST_TAG ${TEST_TAG}
-          # if [ true ]; then
-          #   exit 0;
-          # fi
-      - name: Run if build-apk checked
-        if: ${{ github.event.inputs.build-apk == 'true' }}
-        run: echo Job ran
-      - name: Print env vars
-        run: |
-          echo ${{ github.event_name }}
-          date=$(TZ=":America/Chicago" date '+%m/%d/%Y')
-          BRANCH_INFO=$(echo ${GITHUB_BRANCH:11} - $(git log -1 --pretty=%B))
-          BUILD_DESCRIPTION=$([ "$IS_MANUAL_TRIGGER" = true ] && echo "${BRANCH_INFO}" || echo "${date} Regression")
-          echo BUILD_DESCRIPTION - $BUILD_DESCRIPTION
-      # - name: Dispatch tests
-      #   run: |
-      #     for i in {1..5}
-      #     do
-      #       sleep 5
-      #       echo SEND DISPATCH
-      #       curl -X POST -H "Authorization: Bearer ${ACTIONS_TOKEN}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/BlackSwan2019/actionsTesting/dispatches -d '{"event_type":"run-test","client_payload":{"unit":false,"integration":true}}'
-      #     done
+          echo BRANCH NAME
+          echo ${GITHUB_REF_NAME}
