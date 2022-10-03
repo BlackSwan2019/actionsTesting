@@ -21,7 +21,7 @@ on:
   push:
     branches: master
   pull_request:
-    branches: branchName
+    branches: master
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
