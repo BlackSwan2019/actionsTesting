@@ -19,9 +19,9 @@ on:
         type: boolean
         description: Build and upload .apk (Android emulators/real devices)
   push:
-    branches: 'master'
-  pull_request:
     branches: master
+  pull_request:
+    branches: branchName
 
 env:
   BUILD_NAME: ${{ github.event.inputs.buildName || 'DefaultFilename' }}
