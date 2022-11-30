@@ -18,8 +18,6 @@ on:
       build-apk:
         type: boolean
         description: Build and upload .apk (Android emulators/real devices)
-  push:
-    branches: master
   pull_request:
     branches: master
 
